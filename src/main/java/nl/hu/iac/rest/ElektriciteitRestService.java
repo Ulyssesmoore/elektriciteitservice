@@ -11,8 +11,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import nl.hu.iac.service.ElektriciteitServiceImpl;
+import nl.hu.iac.service.Prijs;
 import nl.hu.iac.service.ServiceProvider;
-import nl.hu.iac.service.Elektriciteit;
 
 @Path("/prijzen")
 public class ElektriciteitRestService {
@@ -20,7 +20,7 @@ public class ElektriciteitRestService {
 	@GET
 	@Path("/{prijsId}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Elektriciteit getPrijs(@PathParam("prijsId") int datum) {
+	public Prijs getPrijs(@PathParam("prijsId") int datum) {
 		ElektriciteitServiceImpl elektriciteitServiceImpl = ServiceProvider.getTrackService();
 		return elektriciteitServiceImpl.getTrackById(datum);
 	}
@@ -28,17 +28,17 @@ public class ElektriciteitRestService {
 	@GET
 	@Path("/")
 	@Produces({MediaType.APPLICATION_JSON})
-	public List<Elektriciteit> getAllePrijzen() {
+	public List<Prijs> getAllePrijzen() {
 		ElektriciteitServiceImpl elektriciteitServiceImpl = ServiceProvider.getTrackService();
-		return elektriciteitServiceImpl.getElektriciteits();
+		return elektriciteitServiceImpl.getPrijss();
 	}
 	
 	@PUT
 	@Consumes ({MediaType.APPLICATION_JSON})
 	@Produces ({MediaType.APPLICATION_JSON})
-	public Elektriciteit createUser(Elektriciteit elektriciteit){
+	public Prijs createUser(Prijs prijs){
 		ElektriciteitServiceImpl elektriciteitServiceImpl = ServiceProvider.getTrackService();
-		return elektriciteitServiceImpl.add(elektriciteit);
+		return elektriciteitServiceImpl.add(prijs);
 
 	}
 
