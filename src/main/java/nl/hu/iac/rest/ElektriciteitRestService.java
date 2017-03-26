@@ -22,7 +22,7 @@ public class ElektriciteitRestService {
 	@Produces({MediaType.APPLICATION_JSON})
 	public Prijs getPrijs(@PathParam("prijsId") int datum) {
 		ElektriciteitServiceImpl elektriciteitServiceImpl = ServiceProvider.getTrackService();
-		return elektriciteitServiceImpl.getTrackById(datum);
+		return elektriciteitServiceImpl.getPrijsBijDatum(datum);
 	}
 
 	@GET
@@ -30,7 +30,7 @@ public class ElektriciteitRestService {
 	@Produces({MediaType.APPLICATION_JSON})
 	public List<Prijs> getAllePrijzen() {
 		ElektriciteitServiceImpl elektriciteitServiceImpl = ServiceProvider.getTrackService();
-		return elektriciteitServiceImpl.getPrijss();
+		return elektriciteitServiceImpl.getPrijzen();
 	}
 	
 	@PUT
